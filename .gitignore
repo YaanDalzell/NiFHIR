@@ -1,5 +1,6 @@
 # Ignore NiFi data directory
-nifi_data/
+nifi-conf/archive/
+
 
 # Ignore PyCharm IDE project configuration files
 .idea/
