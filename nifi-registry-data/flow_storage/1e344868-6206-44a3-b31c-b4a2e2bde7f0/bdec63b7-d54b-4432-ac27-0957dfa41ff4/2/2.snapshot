@@ -1,0 +1,294 @@
+{
+  "header" : {
+    "dataModelVersion" : "3"
+  },
+  "content" : {
+    "flowSnapshot" : {
+      "externalControllerServices" : { },
+      "flowContents" : {
+        "comments" : "",
+        "componentType" : "PROCESS_GROUP",
+        "connections" : [ {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+            "id" : "623ef94d-a9ae-3c6f-ad00-0a75e29028f5",
+            "instanceIdentifier" : "20f833de-0199-1000-88f3-517cada8ad6e",
+            "name" : "JoltTransformJSON",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+          "identifier" : "c0cd294d-18f1-33ab-a643-a4ca487994f5",
+          "instanceIdentifier" : "20f84426-0199-1000-e650-f64c9136dd17",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+            "id" : "a9f6a161-08e6-3c9d-a33a-db36888e6629",
+            "instanceIdentifier" : "20f80e3d-0199-1000-2c30-f4f9f1dc3b6a",
+            "name" : "GetHTTP",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        } ],
+        "controllerServices" : [ ],
+        "defaultBackPressureDataSizeThreshold" : "1 GB",
+        "defaultBackPressureObjectThreshold" : 10000,
+        "defaultFlowFileExpiration" : "0 sec",
+        "flowFileConcurrency" : "UNBOUNDED",
+        "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+        "funnels" : [ ],
+        "identifier" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+        "inputPorts" : [ ],
+        "instanceIdentifier" : "20f6d006-0199-1000-433f-4da549f7a0c3",
+        "labels" : [ ],
+        "name" : "NiFHIR",
+        "outputPorts" : [ ],
+        "position" : {
+          "x" : 345.0,
+          "y" : 155.0
+        },
+        "processGroups" : [ ],
+        "processors" : [ {
+          "autoTerminatedRelationships" : [ ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.20.0"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+          "identifier" : "623ef94d-a9ae-3c6f-ad00-0a75e29028f5",
+          "instanceIdentifier" : "20f833de-0199-1000-88f3-517cada8ad6e",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "JoltTransformJSON",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 336.0,
+            "y" : 416.0
+          },
+          "properties" : {
+            "jolt-transform" : "jolt-transform-chain",
+            "pretty_print" : "false",
+            "Transform Cache Size" : "1"
+          },
+          "propertyDescriptors" : {
+            "jolt-spec" : {
+              "displayName" : "Jolt Specification",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "jolt-spec",
+              "sensitive" : false
+            },
+            "jolt-transform" : {
+              "displayName" : "Jolt Transformation DSL",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "jolt-transform",
+              "sensitive" : false
+            },
+            "jolt-custom-class" : {
+              "displayName" : "Custom Transformation Class Name",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "jolt-custom-class",
+              "sensitive" : false
+            },
+            "jolt-custom-modules" : {
+              "displayName" : "Custom Module Directory",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "jolt-custom-modules",
+              "resourceDefinition" : {
+                "cardinality" : "MULTIPLE",
+                "resourceTypes" : [ "FILE", "DIRECTORY" ]
+              },
+              "sensitive" : false
+            },
+            "pretty_print" : {
+              "displayName" : "Pretty Print",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "pretty_print",
+              "sensitive" : false
+            },
+            "Transform Cache Size" : {
+              "displayName" : "Transform Cache Size",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Transform Cache Size",
+              "sensitive" : false
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.JoltTransformJSON",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.20.0"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "3675b1f7-48ad-33c6-afe2-a1471b3897c1",
+          "identifier" : "a9f6a161-08e6-3c9d-a33a-db36888e6629",
+          "instanceIdentifier" : "20f80e3d-0199-1000-2c30-f4f9f1dc3b6a",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "GetHTTP",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 332.0,
+            "y" : 133.0
+          },
+          "properties" : {
+            "redirect-cookie-policy" : "default",
+            "Connection Timeout" : "30 sec",
+            "Data Timeout" : "30 sec",
+            "Follow Redirects" : "false"
+          },
+          "propertyDescriptors" : {
+            "Proxy Host" : {
+              "displayName" : "Proxy Host",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Proxy Host",
+              "sensitive" : false
+            },
+            "redirect-cookie-policy" : {
+              "displayName" : "Redirect Cookie Policy",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "redirect-cookie-policy",
+              "sensitive" : false
+            },
+            "proxy-configuration-service" : {
+              "displayName" : "Proxy Configuration Service",
+              "dynamic" : false,
+              "identifiesControllerService" : true,
+              "name" : "proxy-configuration-service",
+              "sensitive" : false
+            },
+            "Filename" : {
+              "displayName" : "Filename",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Filename",
+              "sensitive" : false
+            },
+            "User Agent" : {
+              "displayName" : "User Agent",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "User Agent",
+              "sensitive" : false
+            },
+            "Proxy Port" : {
+              "displayName" : "Proxy Port",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Proxy Port",
+              "sensitive" : false
+            },
+            "URL" : {
+              "displayName" : "URL",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "URL",
+              "sensitive" : false
+            },
+            "Connection Timeout" : {
+              "displayName" : "Connection Timeout",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Connection Timeout",
+              "sensitive" : false
+            },
+            "Data Timeout" : {
+              "displayName" : "Data Timeout",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Data Timeout",
+              "sensitive" : false
+            },
+            "SSL Context Service" : {
+              "displayName" : "SSL Context Service",
+              "dynamic" : false,
+              "identifiesControllerService" : true,
+              "name" : "SSL Context Service",
+              "sensitive" : false
+            },
+            "Username" : {
+              "displayName" : "Username",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Username",
+              "sensitive" : false
+            },
+            "Accept Content-Type" : {
+              "displayName" : "Accept Content-Type",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Accept Content-Type",
+              "sensitive" : false
+            },
+            "Follow Redirects" : {
+              "displayName" : "Follow Redirects",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Follow Redirects",
+              "sensitive" : false
+            },
+            "Password" : {
+              "displayName" : "Password",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Password",
+              "sensitive" : true
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.GetHTTP",
+          "yieldDuration" : "1 sec"
+        } ],
+        "remoteProcessGroups" : [ ]
+      },
+      "flowEncodingVersion" : "1.0",
+      "parameterContexts" : { },
+      "parameterProviders" : { }
+    }
+  }
+}

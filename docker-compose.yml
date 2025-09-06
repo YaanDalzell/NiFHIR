@@ -8,7 +8,10 @@ services:
     environment:
       NIFI_WEB_HTTP_PORT: 8080
     volumes:
-      - ./nifi_data:/opt/nifi/data
+      - ./opt/nifi/drivers:/opt/nifi/nifi-current/drivers
+      - ./opt/nifi/certs:/opt/certs
+#      - ./nifi-conf:/opt/nifi/nifi-current/conf
+
 
   nifi-registry:
     image: apache/nifi-registry:latest
@@ -16,8 +19,10 @@ services:
     ports:
       - "18080:18080"
     volumes:
-      - ./nifi-registry-data/repository:/opt/nifi-registry/repository
+      - ./nifi-registry-data/flow_storage:/opt/nifi-registry/nifi-registry-current/flow_storage
+      - ./nifi-registry-data/database:/opt/nifi-registry/nifi-registry-current/database
       - ./nifi-registry-data/logs:/opt/nifi-registry/logs
     environment:
       - NIFI_REGISTRY_WEB_HTTP_PORT=18080
       - NIFI_REGISTRY_SECURITY_REQUIRE_AUTHORIZATION=false
+
