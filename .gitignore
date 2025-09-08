@@ -1,6 +1,8 @@
 # Ignore NiFi data directory
 nifi-conf/archive/
 
+# Ignore mariadb data
+data/
 
 # Ignore PyCharm IDE project configuration files
 .idea/

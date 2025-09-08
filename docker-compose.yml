@@ -5,12 +5,14 @@ services:
     container_name: nifi-container  # <--- Custom container name
     ports:
       - "8080:8080"
+#      - "3306:3306"
     environment:
       NIFI_WEB_HTTP_PORT: 8080
     volumes:
       - ./opt/nifi/drivers:/opt/nifi/nifi-current/drivers
       - ./opt/nifi/certs:/opt/certs
       - ./nifi-conf:/opt/nifi/nifi-current/conf
+    restart: always # Ensures the container restarts automatically if it stops
 
 
   nifi-registry:
@@ -25,4 +27,20 @@ services:
     environment:
       - NIFI_REGISTRY_WEB_HTTP_PORT=18080
       - NIFI_REGISTRY_SECURITY_REQUIRE_AUTHORIZATION=false
+    restart: always # Ensures the container restarts automatically if it stops
 
+
+  mariadb:
+    image: mariadb:latest # Uses the latest MariaDB image from Docker Hub
+    container_name: mariadb-db # Assigns a custom name to the container
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password # Sets the root user's password
+      MYSQL_DATABASE: IP_PRELND # Creates a database with this name
+      MYSQL_USER: your_user # Creates a user with this name
+      MYSQL_PASSWORD: your_user_password # Sets the user's password
+    volumes:
+      - ./data:/var/lib/mysql # Mounts a local 'data' directory for persistent storage
+      - ./maria-init:/docker-entrypoint-initdb.d # Runs init scripts on first container start (when data dir is empty)
+    ports:
+      - "3306:3306" # Maps the container's 3306 port to the host's 3306 port
+    restart: always # Ensures the container restarts automatically if it stops
